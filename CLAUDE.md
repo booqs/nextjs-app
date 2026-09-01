@@ -48,7 +48,7 @@ Per-effort `docs/<effort>-tasks.md` implementation plans are **not** retired by 
 ### Task Management
 - Work is driven through a combination of direct prompts and `TASKS.md`.
 - Tasks in `TASKS.md` are pre-approved — execute them without presenting the approach first.
-- **That pre-approval is currently dormant.** The board's items were migrated to Linear, and whether the pre-approval travels with them is undecided (ASH-168). Until it is, present an approach first.
+- **Pre-approval carries to Linear issues labeled `startable`** (only Anton applies that label) — decided 2026-09-01 (ASH-168). Issues without the label: present an approach first.
 
 ### Planning & Scope
 - Just do it — no upfront planning unless explicitly requested.

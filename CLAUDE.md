@@ -12,43 +12,21 @@ State and control documents live at root as UPPERCASE `.md` files. Per-effort de
 - `CLAUDE.md` — agent entry point: conventions, architecture, workflow (this file).
 - `AGENTS.md` — one-line redirect to `CLAUDE.md` for runtimes that look there first.
 - `SPEC.md` — current functional state of the app. Companions: `docs/ux.md` (visual design), `docs/ir-design.md` (content model). When making functional changes, update `SPEC.md`. When making visual/layout changes, update `docs/ux.md`. **Do not skip this** — these files are the source of truth.
-- **Tasks, issues and ideas live in Linear, not in this repo** — see *Task tracking* below. `TASKS.md` and `IDEAS.md` still exist as the migration's rollback and are **retired, not authoritative**; do not capture to them. The `HANDOFFS.md` and `SPRINT.md` slots are retired too; do not create them.
+- **Tasks, issues and ideas live in the tracker, not in this repo.** How to use it — the tools, the vocabularies, and what belongs in a repo instead — is fleet-wide guidance every agent already carries; this repo adds nothing to it. `TASKS.md` and `IDEAS.md` still exist as the migration's rollback and are **retired, not authoritative**; do not capture to them. The `HANDOFFS.md` and `SPRINT.md` slots are retired too; do not create them.
+- `TRACK.md` — which track this repo belongs to, and its slug. The slug is the tracker's project name and is declared there and nowhere else.
 - `SCRATCHPAD.md` — untracked drafting space. Do not act on its contents unless explicitly asked.
 - `ROADMAP.md` — when present, long-horizon vision and direction for the repo's evolution.
-- `FOCUS.md` — when present, the current bounded focus: a selection over the open work in Linear, period-agnostic. (`SPRINT.md` is its retired former name.)
+- `FOCUS.md` — when present, the current bounded focus: a selection over the open work in the tracker, period-agnostic. (`SPRINT.md` is its retired former name.)
 
 **Directories:**
-- `docs/` — companion docs to root entry points, per-effort design docs, and this repo's **records and standing notes** (see *Task tracking*). Lowercase kebab-case names.
-  - `docs/backlog.md` — the pre-v2 board of low-priority items. **Retired, not authoritative**; its items are in Linear. Kept as the migration's rollback; do not capture to it.
-- `archive/` — the durable record a closed effort leaves behind, moved from `docs/` when work wraps. Completed work *items* are closed Linear issues — a query, not a file.
-
-### Task tracking
-
-Tasks, issues and ideas live in **Linear**, not in this repo. The rule, stated once:
-
-**One project per track, and the project name *is* the track name.** booqs is a **single track across several repos** (`hub`, this one, `swiftui-app`, `quire`), so they share one project — there is not one project per repo. There is no stored track→project mapping — not here, not in the axis track index. Duplicating the mapping is what would let it drift; stating the rule is what prevents that.
-
-**Labels:** `startable` (an agent can begin now — no gate, no unmet dependency), `blocked-on-user` (needs the user specifically), `parked-until-graduates` (held deliberately, not scheduled).
-
-`startable` is a readiness marking, **not** a grant of authority to execute unasked — see *Task Management* below for what this repo pre-approves.
-
-**What does NOT go to Linear.** Durable records stay in the repo, and getting this wrong is how the tracker fills with things nobody can close:
-
-| Class | Test | Home |
-|---|---|---|
-| **TASK** | Open, future-facing. Someone must do something. | Linear |
-| **RECORD** | Past-facing — diagnosis, measurement, ruling, as-built. Value is being read later. | `docs/`, or `archive/` once the effort closes |
-| **HYBRID** | Open task whose body is mostly record. | Both; the issue links to the doc |
-| **STANDING NOTE** | Neither past nor actionable — a caution that stays true and an agent needs *while working*. | `docs/` or `CLAUDE.md`. **Never Linear** |
-
-The `NODE_ENV=production` note under *Build, Lint, and Test* and the `htmlparser2`-not-`fast-xml-parser` ruling under *File Processing* are the model STANDING NOTEs: nothing to do, true while working, and as issues they would be things nobody can close.
-
-Per-effort `docs/<effort>-tasks.md` implementation plans are **not** retired by v2 — a plan is read as a document and belongs to one bounded effort. Linear tracks the effort; the plan stays beside its design doc.
+- `docs/` — companion docs to root entry points, per-effort design docs, and this repo's **records and standing notes** — the durable things that are deliberately not tasks. Lowercase kebab-case names.
+  - `docs/backlog.md` — the pre-v2 board of low-priority items. **Retired, not authoritative**; its items are in the tracker. Kept as the migration's rollback; do not capture to it.
+- `archive/` — the durable record a closed effort leaves behind, moved from `docs/` when work wraps. Completed work *items* are closed issues in the tracker — a query, not a file.
 
 ### Task Management
 - Work is driven through a combination of direct prompts and `TASKS.md`.
 - Tasks in `TASKS.md` are pre-approved — execute them without presenting the approach first.
-- **Pre-approval carries to Linear issues labeled `startable`** (only Anton applies that label) — decided 2026-09-01 (ASH-168). Issues without the label: present an approach first.
+- **Pre-approval carries to issues whose `owner` is `anton:agent`** — decided 2026-09-01, re-expressed on the new field 2026-09-08. Issues without that owner: present an approach first.
 
 ### Planning & Scope
 - Just do it — no upfront planning unless explicitly requested.
@@ -67,11 +45,11 @@ Per-effort `docs/<effort>-tasks.md` implementation plans are **not** retired by 
 ### Communication Style
 - Explanatory — include reasoning behind choices.
 - Proactively suggest improvements noticed along the way.
-- Add suggestions to the relevant effort doc's suggestions section (or file them in Linear) AND mention them in conversation.
+- Add suggestions to the relevant effort doc's suggestions section (or file them in the tracker) AND mention them in conversation.
 
 ### Review & Iteration
 - Present approach before executing (for direct prompts), unless told otherwise.
-- Iterate on feedback immediately, unless explicitly told to file it in Linear instead.
+- Iterate on feedback immediately, unless explicitly told to file it in the tracker instead.
 
 ### Conventions & Documentation
 - When a new convention emerges from discussion (naming rules, architectural patterns), add it to CLAUDE.md immediately.

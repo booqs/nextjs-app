@@ -12,7 +12,7 @@ State and control documents live at root as UPPERCASE `.md` files. Per-effort de
 - `CLAUDE.md` — agent entry point: conventions, architecture, workflow (this file).
 - `AGENTS.md` — one-line redirect to `CLAUDE.md` for runtimes that look there first.
 - `SPEC.md` — current functional state of the app. Companions: `docs/ux.md` (visual design), `docs/ir-design.md` (content model). When making functional changes, update `SPEC.md`. When making visual/layout changes, update `docs/ux.md`. **Do not skip this** — these files are the source of truth.
-- **Tasks, issues and ideas live in the tracker, not in this repo.** How to use it — the tools, the vocabularies, and what belongs in a repo instead — is fleet-wide guidance every agent already carries; this repo adds nothing to it. `TASKS.md` and `IDEAS.md` still exist as the migration's rollback and are **retired, not authoritative**; do not capture to them. The `HANDOFFS.md` and `SPRINT.md` slots are retired too; do not create them.
+- **Tasks, issues and ideas live in the tracker, not in this repo.** How to use it — the tools, the vocabularies, and what belongs in a repo instead — is fleet-wide guidance every agent already carries; this repo adds nothing to it. The `TASKS.md`, `IDEAS.md`, `HANDOFFS.md` and `SPRINT.md` slots are retired; do not create them. Ideas are issues tagged `idea`.
 - `TRACK.md` — which track this repo belongs to, and its slug. The slug is the tracker's project name and is declared there and nowhere else.
 - `SCRATCHPAD.md` — untracked drafting space. Do not act on its contents unless explicitly asked.
 - `ROADMAP.md` — when present, long-horizon vision and direction for the repo's evolution.
@@ -20,12 +20,10 @@ State and control documents live at root as UPPERCASE `.md` files. Per-effort de
 
 **Directories:**
 - `docs/` — companion docs to root entry points, per-effort design docs, and this repo's **records and standing notes** — the durable things that are deliberately not tasks. Lowercase kebab-case names.
-  - `docs/backlog.md` — the pre-v2 board of low-priority items. **Retired, not authoritative**; its items are in the tracker. Kept as the migration's rollback; do not capture to it.
 - `archive/` — the durable record a closed effort leaves behind, moved from `docs/` when work wraps. Completed work *items* are closed issues in the tracker — a query, not a file.
 
 ### Task Management
-- Work is driven through a combination of direct prompts and `TASKS.md`.
-- Tasks in `TASKS.md` are pre-approved — execute them without presenting the approach first.
+- Work is driven through a combination of direct prompts and the tracker.
 - **Pre-approval carries to issues whose `owner` is `anton:agent`** — decided 2026-09-01, re-expressed on the new field 2026-09-08. Issues without that owner: present an approach first.
 
 ### Planning & Scope

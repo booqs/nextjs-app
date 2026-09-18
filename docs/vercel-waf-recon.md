@@ -127,3 +127,27 @@ The decisions left are housekeeping:
    rollout is complete; both were still `in-progress` because the
    2026-07-29 completion was recorded in the design doc but not in the
    tracker.
+
+## Follow-up 2026-09-18 — match counts not readable outside the dashboard
+
+Asked to read the match counts on `recon-log-native-paths` and then
+delete it. The counts could not be read, so **the rule was left in
+place** (config still v9, all three rules unchanged on read-back):
+
+- `GET /v1/security/firewall/events` (with a two-day window, with and
+  without `ruleId`) returns `{"actions":[]}`; `attack-status` returns no
+  anomalies. Neither carries custom-rule match counts.
+- `vercel firewall overview --json` (CLI 59.14.0 does expose the
+  firewall; the earlier note that it does not was wrong) returns
+  `stats`, `series` and `topRules` as null with
+  `activityUnavailable: { reason: "plan", message: "Traffic and alerts
+  need Observability Plus." }`. `vercel firewall rules inspect` shows
+  configuration only.
+
+So on the Hobby plan, per-rule, per-path and per-user-agent counts exist
+only in the dashboard (Firewall overview, grouped by rule / path / user
+agent). Deleting the rule was sequenced after reading the counts, and
+the counts are the rule's only purpose, so deletion waits on either a
+dashboard glance or an explicit "delete without counts". The delete
+itself is one call: `vercel firewall rules remove recon-log-native-paths`
+then `vercel firewall publish`.

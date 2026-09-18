@@ -151,3 +151,15 @@ the counts are the rule's only purpose, so deletion waits on either a
 dashboard glance or an explicit "delete without counts". The delete
 itself is one call: `vercel firewall rules remove recon-log-native-paths`
 then `vercel firewall publish`.
+
+## Closed 2026-09-18 — recon rule deleted without counts
+
+Anton's decision: delete without counts (the probes already showed the
+AASA and GraphQL paths pass unchallenged, and the rule held the last
+Hobby custom-rule slot). `recon-log-native-paths` removed via
+`vercel firewall rules remove` + `publish`; no other drafts were pending.
+Read-back, config **v10**: `Deny all access` (deny, disabled) and
+`native-app-access` (bypass, enabled, same four path conditions) are
+untouched; Bot Protection still `challenge`, AI bots still `deny`. One
+custom-rule slot is free again for the A escalation. Post-delete probe:
+`POST /api/graphql` 200 JSON, `GET /` 429 checkpoint — unchanged.

@@ -24,7 +24,7 @@ State and control documents live at root as UPPERCASE `.md` files. Per-effort de
 
 ### Task Management
 - Work is driven through a combination of direct prompts and the tracker.
-- **Pre-approval carries to issues whose `owner` is `anton:agent`** — decided 2026-09-01, re-expressed on the new field 2026-09-08. Issues without that owner: present an approach first.
+- **Pre-approval carries to issues labeled `agent-ready`** — decided 2026-09-01, re-expressed as a label 2026-09-29. Issues without it: present an approach first.
 
 ### Planning & Scope
 - Just do it — no upfront planning unless explicitly requested.

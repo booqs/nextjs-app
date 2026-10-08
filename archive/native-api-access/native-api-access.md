@@ -427,7 +427,7 @@ Vercel docs (fetched 2026-07-28; `last_updated` as published):
 
 Repo evidence: swiftui-app
 [docs/pitfalls.md](../../../swiftui-app/docs/pitfalls.md) § Backend
-Environment; [docs/quire-integration.md](../../../swiftui-app/docs/quire-integration.md)
+Environment; [docs/quire-integration.md](../../../swiftui-app/archive/quire-integration/quire-integration.md)
 §7; this repo's [proxy.ts](../../proxy.ts) and
 [app/api/graphql/route.ts](../../app/api/graphql/route.ts).
 

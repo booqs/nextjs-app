@@ -49,7 +49,7 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 ## Review posture, commits and push
 
 - **Review posture: owned.** Anton reads every change before the push.
-- **Commits are Anton's** (this repo's exception to the fleet default): agents don't commit unless asked, and propose a commit message instead.
+- **Commits are Anton's** (this repo's exception to the fleet default, kept for sentimental reasons): agents don't commit unless asked, and propose a commit message instead.
 - **Pushing is Anton's call:** the repo is public, and a push to `master` deploys to production on Vercel.
 
 ## Hazards

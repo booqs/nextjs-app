@@ -20,10 +20,10 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 
 ### Layers
 
-- Every directory except `@types`, `tests`, `public`, `coverage`, `certificates` and dot-directories is a layer. A layer may access layers below it, never above.
+- Every directory except `@types`, `tests`, `public`, `coverage`, `certificates`, `archive` and dot-directories is a layer. A layer may access layers below it, never above.
 - Order, bottom to top: `core` < `parser` < `viewer` < `common` < `backend` < `graphql` < `data` < `app/api` < `application` < `components` < `reader` < `app` < `cli`.
 - `app/api` is its own layer between `data` and `application`, although it lives inside `app/`: Next.js requires route handlers there.
-- Layers above `data` (except `cli`) never access `parser`, `backend` or `graphql` directly; they go through `data`. A layer violation is a significant architectural mistake.
+- Layers above `data` (except `cli`) never access `parser`, `backend` or `graphql` directly; they go through `data`. The one exception is `app/api/graphql/route.ts`, which mounts the yoga server. A layer violation is a significant architectural mistake.
 
 ## Commands
 
@@ -42,7 +42,6 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 - Types: inline prop and parameter types unless the type is referenced elsewhere. In a union whose members share some fields but not others, members lacking a discriminating field declare it as `field?: undefined` (as `BooqNode` does), so access needs no assertion.
 - Every `as Type` cast has a comment on the line above saying why it is necessary and safe. Prefer type guards, narrowing or restructuring; a recurring cast is a sign the types want redesigning.
 - All custom `data-*` attributes are defined in `core/attributes.ts`; check there before adding one.
-- Frontend code never imports `backend/*`, `parser/*` or `graphql/*`; add an indirection in `data/*`.
 - Mutually exclusive component state goes in one object with a discriminator (`{ state: 'loading' } | { state: 'error', error }`). Exception: SWR's own `isLoading`/`error` may be exposed directly.
 - CSS and Tailwind use only the colours defined in `app/globals.css` (`--color-primary` is usable as `text-primary`); add a theme colour there if a new one is needed.
 - Path alias `@/*` maps to the repo root. Tests live in `tests/`, mirroring the source tree, named `<Module>.test.ts(x)`. Add tests only when asked.

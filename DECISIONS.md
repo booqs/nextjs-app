@@ -6,7 +6,7 @@ The decisions scoped to nextjs-app. The ones that span Booqs repos are in `../hu
 
 ### ir-fidelity
 
-**Parsed EPUB content is stored faithfully — no tag renaming, attribute camelCasing or element mapping — and the React-specific transforms (attribute normalization, element mapping) happen at render time in `viewer/`.** 2026-04-27. Several renderers consume the IR (the web `viewer/`, and the native app's WKWebView and Quire paths), and stable tree shapes are what `BooqPath` addresses and annotations anchor to. Server-side processing (`parser/process.ts`, `backend/parse.ts`) adds only what every renderer needs: scoped IDs and in-book hrefs, `data-booqs-*` markers, image URLs and dimensions, processed CSS. *Rejected:* the pre-migration IR that renamed `<body>`, stripped `<html>` and camelCased attributes at parse time. *See:* `archive/model-migration/ir-design-migration.md`, `archive/model-migration/ir-design.md`.
+**Parsed EPUB content is stored faithfully — no tag renaming, attribute camelCasing or element mapping — and the React-specific transforms (attribute normalization, element mapping) happen at render time in `viewer/`.** 2026-04-27. Several renderers consume the IR (the web `viewer/`, and the native app's WKWebView and Quire paths), and stable tree shapes are what `BooqPath` addresses and annotations anchor to. Server-side processing (`parser/process.ts`, `backend/parse.ts`) adds what every renderer needs (scoped IDs and in-book hrefs, `data-booqs-*` markers, image URLs and dimensions, processed CSS) and empties `<script>` bodies. *Rejected:* the pre-migration IR that renamed `<body>`, stripped `<html>` and camelCased attributes at parse time. *See:* `archive/model-migration/ir-design-migration.md`, `archive/model-migration/ir-design.md`.
 
 ### content-parser
 
@@ -46,7 +46,7 @@ The decisions scoped to nextjs-app. The ones that span Booqs repos are in `../hu
 
 ### crawler-blocking
 
-**Crawlers are blocked at three layers: `app/robots.txt` disallows everything, `proxy.ts` returns 403 to crawler user agents (including `facebookexternalhit`, so no link previews), and a Vercel AI-bots ruleset denies them.** 2026-05-25. Crawlers were persistent; layers were added until one worked, and which of them are actually needed is unverified (Anton, 2026-10-08). *See:* `booqs/crawler-blocking-layers`.
+**The reader is open to anonymous users, and crawlers are kept off it by blocking, not by auth: `app/robots.txt` disallows everything, `proxy.ts` returns 403 to crawler user agents (including `facebookexternalhit`, so no link previews), a Vercel AI-bots ruleset denies them, and Vercel's Bot Protection challenges since 2026-06-24.** 2026-05-25. Auth-gating the reader was the earlier bot defense; opening it (`e53127a`) shipped together with the 403 (`30ca061`), so dropping a blocking layer exposes the open reader. Crawlers were persistent; layers were added until one worked, and which of them are actually needed is unverified (Anton, 2026-10-08). *Rejected:* auth-gating the reader as the bot defense. *See:* `booqs/crawler-blocking-layers`, `booqs/bot-traffic-mitigation`, `native-api-access`.
 
 ### build-node-env
 

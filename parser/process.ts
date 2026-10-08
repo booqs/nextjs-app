@@ -13,7 +13,7 @@ export type ProcessResult = {
     hrefToPathMap: HrefToPathMap,
 }
 
-// Impure: mutates documents in place for memory efficiency (see CLAUDE.md)
+// Impure: mutates documents in place for memory efficiency (see AGENTS.md)
 export async function processDocuments(documents: BooqDocument[], epub: Epub, diags: Diagnoser): Promise<ProcessResult> {
     sanitize(documents)
     const styles = await processStyles(documents, epub, diags)

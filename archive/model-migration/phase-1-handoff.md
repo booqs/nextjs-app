@@ -4,7 +4,7 @@ Context for continuing work after Phase 1 of the Big Model Migration.
 
 ## What was accomplished
 
-Phase 1 (8 stages) is complete. The IR has been migrated from the old `BooqNode` union to the new `BooqDocument`/`BooqElement` model. See [model-migration-phase-1-ir.md](model-migration-phase-1-ir.md) for detailed task status and [../docs/ir-design-migration.md](../docs/ir-design-migration.md) for the design with divergences documented.
+Phase 1 (8 stages) is complete. The IR has been migrated from the old `BooqNode` union to the new `BooqDocument`/`BooqElement` model. See [model-migration-phase-1-ir-tasks.md](model-migration-phase-1-ir-tasks.md) for detailed task status and [ir-design-migration.md](ir-design-migration.md) for the design with divergences documented.
 
 ## Key decisions made during Phase 1
 
@@ -59,7 +59,7 @@ Per-document `@scope` isolation via `[data-booqs-doc="N"]` ensures styles from o
 
 ## Phase 2: CSS `@scope` migration — COMPLETE
 
-See [model-migration-phase-2-css.md](model-migration-phase-2-css.md) for completed task list.
+See [model-migration-phase-2-css-tasks.md](model-migration-phase-2-css-tasks.md) for completed task list.
 
 ## Files changed in Phase 1
 

@@ -1,9 +1,9 @@
 # Big Model Migration
 
 Coordinated migration spanning three design docs:
-- [IR migration design](../docs/ir-design-migration.md) — bring IR closer to EPUB
-- [CSS handling](../docs/css-handling.md) — migrate from selector rewriting to `@scope`
-- [Locator design](../docs/booqs-locator-design.md) — resilient annotation locators
+- [IR migration design](ir-design-migration.md) — bring IR closer to EPUB
+- [CSS handling](css-handling.md) — migrate from selector rewriting to `@scope`
+- [Locator design](booqs-locator-design.md) — resilient annotation locators
 
 ## Guiding principles
 
@@ -25,7 +25,7 @@ What this phase achieves:
 - In-book navigation uses browser-native `#id` with scoped IDs (no `BooqPath`-based link resolution)
 - All custom data attributes use `data-booqs-` prefix
 
-Detailed task list: [model-migration-phase-1-ir.md](model-migration-phase-1-ir.md)
+Detailed task list: [model-migration-phase-1-ir-tasks.md](model-migration-phase-1-ir-tasks.md)
 
 ## Phase 2: CSS `@scope` migration
 
@@ -40,9 +40,9 @@ What this phase achieves:
 - Original selectors visible in DevTools
 - Optional per-spine-item `@scope` isolation
 
-See [css-handling.md](../docs/css-handling.md) for full design.
+See [css-handling.md](css-handling.md) for full design.
 
-Detailed task list: `model-migration-phase-2-css.md` (to be created)
+Detailed task list: [model-migration-phase-2-css-tasks.md](model-migration-phase-2-css-tasks.md)
 
 ## Phase 3: Locator & annotation migration
 
@@ -63,9 +63,9 @@ What this phase does NOT do (deferred to backlog):
 - New quote URL format with embedded locator
 - Bookmark migration to BooqLocator
 
-See [booqs-locator-design.md](../docs/booqs-locator-design.md) for full design.
+See [booqs-locator-design.md](booqs-locator-design.md) for full design.
 
-Detailed task list: `model-migration-phase-3-locators.md` (to be created)
+Detailed task list: [model-migration-phase-3-locators-tasks.md](model-migration-phase-3-locators-tasks.md)
 
 ## Phase 4: Documentation
 

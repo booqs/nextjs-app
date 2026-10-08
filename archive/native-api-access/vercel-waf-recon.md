@@ -1,7 +1,7 @@
 # Vercel WAF recon — booqs.app (2026-09-17)
 
 Record for tracker issue `axis/vercel-waf-recon`, gating
-`booqs/native-api-access`. Companion to `docs/native-api-access.md`
+`booqs/native-api-access`. Companion to `native-api-access.md`
 (§8 Option B, §9 dashboard checklist). Read-mostly recon through the
 Vercel Firewall REST API with the CLI's stored token, plus one log-mode
 rule. No bypass, deny or challenge rule was added or changed.

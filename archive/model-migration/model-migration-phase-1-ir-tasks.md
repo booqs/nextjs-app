@@ -1,6 +1,6 @@
 # Phase 1: New Type Model + Parser Simplification
 
-Detailed task list for Phase 1 of the [Big Model Migration](model-migration.md). Design context in [IR migration design](../docs/ir-design-migration.md).
+Detailed task list for Phase 1 of the [Big Model Migration](model-migration.md). Design context in [IR migration design](ir-design-migration.md).
 
 Each stage is an end-to-end change (parser + core + renderer). The app must function on localhost after each stage. Test by loading a few EPUBs, navigating, checking highlights/notes.
 

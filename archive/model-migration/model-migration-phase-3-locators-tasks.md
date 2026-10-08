@@ -1,6 +1,6 @@
 # Phase 3: Locator & Annotation Migration
 
-Detailed task list for Phase 3 of the [Big Model Migration](model-migration.md). Design context in [Booqs Locator Design](../docs/booqs-locator-design.md) (see "Decided Architecture" section).
+Detailed task list for Phase 3 of the [Big Model Migration](model-migration.md). Design context in [Booqs Locator Design](booqs-locator-design.md) (see "Decided Architecture" section).
 
 Each stage is an end-to-end change. The app must function on localhost after each stage (or be explicitly noted as a partial step within a stage).
 

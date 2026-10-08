@@ -1,6 +1,6 @@
 # Phase 2: CSS `@scope` Migration
 
-Detailed task list for Phase 2 of the [Big Model Migration](model-migration.md). Design context in [CSS handling](../docs/css-handling.md) (see "Decided Architecture" section).
+Detailed task list for Phase 2 of the [Big Model Migration](model-migration.md). Design context in [CSS handling](css-handling.md) (see "Decided Architecture" section).
 
 Each stage is an end-to-end change. The app must function on localhost after each stage. Test by loading EPUBs with varying CSS complexity, checking dark mode, and verifying style isolation.
 
@@ -75,7 +75,7 @@ Update the renderer to resolve styles from `<head>` elements, wrap in `@scope` a
 
 ## ~~Stage 3: Inline style attribute sanitization~~ — skipped
 
-Decision: do not sanitize inline `style` attributes. Inline styles are rare in well-formed EPUBs, and stripping them risks removing intentional author styling. Revisit if dark mode issues surface in practice. See [css-handling.md](../docs/css-handling.md) "Color stripping strategy".
+Decision: do not sanitize inline `style` attributes. Inline styles are rare in well-formed EPUBs, and stripping them risks removing intentional author styling. Revisit if dark mode issues surface in practice. See [css-handling.md](css-handling.md) "Color stripping strategy".
 
 ---
 
@@ -107,4 +107,4 @@ Remove unused dependencies, verify no regressions from specificity changes.
 
 Moved to appropriate locations:
 - **Cache re-enable** → [phase-1-handoff.md](phase-1-handoff.md) "Booq-level cache disabled" (applies to both Phase 1 and Phase 2 changes)
-- **Per-spine-item isolation**, **shared stylesheet dedup**, **donut scoping**, **CSS sanitization list** → [backlog.md](backlog.md)
+- **Per-spine-item isolation**, **shared stylesheet dedup**, **donut scoping**, **CSS sanitization list** → tracker issues `booqs/per-spine-style-isolation`, `booqs/stylesheet-deduplication`, `booqs/donut-scoping-annotation-ui`, `booqs/epub-css-sanitization-list`

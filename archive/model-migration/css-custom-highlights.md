@@ -236,4 +236,4 @@ DOM wrapping is the right choice for Booqs right now. CHA becomes the right choi
 
 - [booqs-locator-design.md](booqs-locator-design.md) — locator and annotation design that references this investigation.
 - [css-handling.md](css-handling.md) — EPUB CSS containment strategy.
-- [../../docs/roadmap.md](../../docs/roadmap.md) — "Technical decisions standing" records the Highlights rendering commitment.
+- [DECISIONS.md](../../DECISIONS.md) — `highlight-rendering` records the highlights rendering commitment.

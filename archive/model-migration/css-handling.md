@@ -209,4 +209,4 @@ Inline `style` attributes are **not** sanitized. Inline styles are relatively ra
 
 - [booqs-locator-design.md](booqs-locator-design.md) — locator and annotation design (cross-references CSS handling).
 - [css-custom-highlights.md](css-custom-highlights.md) — highlight rendering investigation.
-- [../../docs/roadmap.md](../../docs/roadmap.md) — "Technical decisions standing" records the EPUB CSS handling commitment.
+- [DECISIONS.md](../../DECISIONS.md) — `epub-css-containment` and `epub-color-stripping` record the EPUB CSS handling commitment.

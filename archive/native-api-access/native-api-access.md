@@ -248,7 +248,7 @@ posture is proportionate today.
 
 ## 7. Rate-limiting composition (and the uploads item)
 
-The hub HANDOFFS backlog already notes native uploads land on an
+Tracker issue `booqs/rate-limiting` already notes native uploads land on an
 endpoint with no rate limit. This design composes with that item rather
 than conflicting, with one **load-bearing ordering rule**: a matched
 bypass skips all *subsequent* rules (§4), so anything that must still
@@ -408,7 +408,7 @@ production-pointed build:
 
 Server (this repo): **no changes required**. Optional later, with the
 uploads rate-limit follow-up: app-level per-user limits on
-`app/api/upload/` (WAF per-IP limits can't see users; the backlog item
+`app/api/upload/` (WAF per-IP limits can't see users; `booqs/rate-limiting`
 stays open).
 
 ## Sources
@@ -426,10 +426,10 @@ Vercel docs (fetched 2026-07-28; `last_updated` as published):
 - [Firewall REST API][rest-api]; [system-bypass changelog][sysbypass-cl]
 
 Repo evidence: swiftui-app
-[docs/pitfalls.md](../../swiftui-app/docs/pitfalls.md) § Backend
-Environment; [docs/quire-integration.md](../../swiftui-app/docs/quire-integration.md)
-§7; this repo's [proxy.ts](../proxy.ts) and
-[app/api/graphql/route.ts](../app/api/graphql/route.ts).
+[docs/pitfalls.md](../../../swiftui-app/docs/pitfalls.md) § Backend
+Environment; [docs/quire-integration.md](../../../swiftui-app/docs/quire-integration.md)
+§7; this repo's [proxy.ts](../../proxy.ts) and
+[app/api/graphql/route.ts](../../app/api/graphql/route.ts).
 
 Unverified items remaining: header-value rule conditions on Hobby
 (matters only at the A escalation); App Attest on macOS. Settled by

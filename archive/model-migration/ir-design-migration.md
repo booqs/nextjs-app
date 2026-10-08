@@ -128,7 +128,7 @@ All custom `data-*` attributes defined in one file:
 
 ## Migration Order
 
-Detailed task list in [../tasks/model-migration-phase-1-ir.md](../tasks/model-migration-phase-1-ir.md).
+Detailed task list in [model-migration-phase-1-ir-tasks.md](model-migration-phase-1-ir-tasks.md).
 
 ## See Also
 

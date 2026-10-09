@@ -1,11 +1,15 @@
+---
+track: booqs
+label: repo:nextjs-app
+---
+
 # Booqs — nextjs-app
 
-The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. A sub-repo of the multi-repo Booqs track, tag `nextjs-app`; the hub (`../hub`) is authoritative for the track, and holds the strategy and the decisions that span repos.
+The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. One repo of the multi-repo Booqs track. What spans the track's repos lives in xaxis (workspace `default`): read `booqs/conventions` before cross-repo work, `booqs/decisions` for the decisions that span repos and `booqs/strategy` for the product strategy; `get-project` on `booqs` gives the track and lists the rest.
 
 ## Documentation layout
 
 - `AGENTS.md` — this file: layout, map and conventions.
-- `TRACK.md` — the track this repo belongs to, its slug and tag.
 - `DECISIONS.md` — the decisions in force scoped to this repo, with their reasons.
 - `docs/` — when present, per-effort designs and plans, records and standing notes.
 - `archive/` — finished efforts, one file or directory per effort.

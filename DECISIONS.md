@@ -1,6 +1,6 @@
 # Decisions
 
-The decisions scoped to nextjs-app. The ones that span Booqs repos are in `../hub/DECISIONS.md`.
+The decisions scoped to nextjs-app. The ones that span Booqs repos are in xaxis as `booqs/decisions` (workspace `default`).
 
 ## Content model
 

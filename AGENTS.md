@@ -52,9 +52,10 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 
 ## Review posture, commits and push
 
-- **Review posture: owned.** Anton reads every change before the push.
-- **Commits are Anton's** (this repo's exception to the fleet default, kept for sentimental reasons): agents don't commit unless asked, and propose a commit message instead.
-- **Pushing is Anton's call:** the repo is public, and a push to `master` deploys to production on Vercel.
+- **Review posture: owned, at the commit.** Anton reviews each commit: he makes it, or approves it before an agent makes it (this repo's exception to the fleet default, kept for sentimental reasons). Without that approval, agents propose a commit message instead of committing.
+- **Agents push on their own.** A push to `master` builds a staged production deployment on Vercel that serves no domain (*Auto-assign Custom Production Domains* is off), so a push ships nothing (`booqs/decisions` → `push-and-deploy`).
+- **The deploy is the promote** of the staged build: the dashboard's Promote, or `vercel promote <url>`. It is Anton's call, or an agent's when he asks. Rollback is the same move, onto an older deployment.
+- **A change that carries a schema change stays Anton's to push.** The repo has no migration tooling: the Postgres schema is `backend/schema.sql`, applied to Neon by hand, in step with the deploy. A change to it, or any change that needs the database changed before its code runs, waits for Anton.
 
 ## Hazards
 
@@ -62,4 +63,4 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 - `proxy.ts` 403s crawler user agents, link-preview fetchers included (`booqs/decisions` → `crawler-blocking`).
 - The parser stores EPUB content as-is; renaming tags or camelCasing attributes belongs in `viewer/` at render time, because `BooqPath`s and annotations anchor to the stored tree (`booqs/decisions` → `ir-fidelity`). Content documents parse with `htmlparser2`; `fast-xml-parser` changes tree shapes (`content-parser`).
 - Highlights are DOM spans, not the CSS Custom Highlight API, until WebKit can hit-test highlights (`booqs/decisions` → `highlight-rendering`).
-- The repo is public: no secrets, tokens or private values in code, docs or commit messages.
+- The repo is public, and a push publishes even though it no longer deploys: no secrets, tokens or private values in code, docs or commit messages.

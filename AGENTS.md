@@ -1,6 +1,6 @@
 ---
 track: booqs
-label: repo:nextjs-app
+codebase-url: https://github.com/booqs/nextjs-app
 ---
 
 # Booqs — nextjs-app

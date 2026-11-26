@@ -5,12 +5,12 @@ codebase-url: https://github.com/booqs/nextjs-app
 
 # Booqs — nextjs-app
 
-The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. One repo of the multi-repo Booqs track. Everything about Booqs that is useful without this checkout lives in xaxis (workspace `default`): `booqs/decisions` holds every decision in force, this repo's included, `booqs/strategy` the product strategy, and `booqs/conventions` is read before cross-repo work; `get-project` on `booqs` gives the track and lists the rest.
+The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. One repo of the multi-repo Booqs track. Everything about Booqs that is useful without this checkout lives in xaxis, under `/ashakirzianov/booqs/`: `decisions/` holds every decision in force, this repo's included, `strategy.md` the product strategy, and `conventions.md` is read before cross-repo work; `get-project` on `/ashakirzianov/booqs/` gives the track and lists the rest.
 
 ## Documentation layout
 
 - `AGENTS.md` — this file: layout, map and conventions.
-- Decisions: xaxis `booqs/decisions`, the areas Content model, Styles, Annotations, Auth and Deployment. A new decision lands there together with the code.
+- Decisions: xaxis `/ashakirzianov/booqs/decisions/`, the areas Content model, Styles, Annotations, Auth and Deployment. A new decision lands there together with the code.
 - `docs/` — when present, per-effort designs and plans, records and standing notes.
 - `archive/` — finished efforts, one file or directory per effort.
 - `SCRATCHPAD.md` — when present, Anton's untracked drafting space. Never open it without an explicit ask.
@@ -20,7 +20,7 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 - "Booq" is the product's word for a book. A `BooqId` is `{library}-{id}`; the libraries (`backend/library.ts`) are `pg` (Project Gutenberg), `uu` (user uploads) and `lo` (local EPUBs from `public/epubs`, uncached, for development).
 - Directories: `core/` (IR and domain types, tree and path utilities), `parser/` (EPUB → IR), `viewer/` (IR → React, selection, scroll), `common/`, `backend/` (database, cache, storage, libraries, auth), `graphql/` (schema and resolvers), `data/` (the server-side indirection layer frontend code calls), `app/api/` (route handlers), `application/` (client state, hooks and providers), `components/`, `reader/` (the reading interface), `app/` (App Router pages), `cli/` (`npm run cli`), `tests/`.
 - Entry points: `proxy.ts` (token rotation, protected-route redirects, crawler 403s), `parser/process.ts` (the EPUB processing pipeline), `viewer/render.ts` (rendering), `core/model.ts` (the IR), `graphql/schema.graphql` (the API every client uses, served by graphql-yoga at `/api/graphql`).
-- Storage: Postgres on Neon (`backend/schema.sql`), Redis on Upstash (a key-value cache, refresh tokens, reading history, sign-in secrets and passkey challenges), S3 (`backend/blob.ts`: Gutenberg and uploaded EPUBs, images, the parsed-book cache). Auth is email magic links plus WebAuthn passkeys; the token model is `booqs/decisions` → `token-model`.
+- Storage: Postgres on Neon (`backend/schema.sql`), Redis on Upstash (a key-value cache, refresh tokens, reading history, sign-in secrets and passkey challenges), S3 (`backend/blob.ts`: Gutenberg and uploaded EPUBs, images, the parsed-book cache). Auth is email magic links plus WebAuthn passkeys; the token model is `/ashakirzianov/booqs/decisions/` → `token-model`.
 
 ### Layers
 
@@ -32,7 +32,7 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 ## Commands
 
 - `npm run dev` (`npm run https` for HTTPS, needs mkcert), `npm run build` (ESLint with zero warnings, then `next build`), `npm run start`, `npm run lint`, `npm run test` (Jest; `test:watch`, `test:coverage`), `npm run analyze` (bundle analyzer), `npm run cli`.
-- The build pins `NODE_ENV=production`; a red build that fails prerender with a null `useContext` means the pin was bypassed (`booqs/decisions` → `build-node-env`).
+- The build pins `NODE_ENV=production`; a red build that fails prerender with a null `useContext` means the pin was bypassed (`/ashakirzianov/booqs/decisions/` → `build-node-env`).
 - Run `npm run build` after completing a change and fix any errors before presenting it; work is not done without a passing build.
 
 ## Code conventions
@@ -53,14 +53,14 @@ The Next.js web app and GraphQL backend behind Booqs, and the API server the Swi
 ## Review posture, commits and push
 
 - **Review posture: owned, at the commit.** Anton reviews each commit: he makes it, or approves it before an agent makes it (this repo's exception to the fleet default, kept for sentimental reasons). Without that approval, agents propose a commit message instead of committing.
-- **Agents push on their own.** A push to `master` builds a staged production deployment on Vercel that serves no domain (*Auto-assign Custom Production Domains* is off), so a push ships nothing (`booqs/decisions` → `push-and-deploy`).
+- **Agents push on their own.** A push to `master` builds a staged production deployment on Vercel that serves no domain (*Auto-assign Custom Production Domains* is off), so a push ships nothing (`/ashakirzianov/booqs/decisions/` → `push-and-deploy`).
 - **The deploy is the promote** of the staged build: the dashboard's Promote, or `vercel promote <url>`. It is Anton's call, or an agent's when he asks. Rollback is the same move, onto an older deployment.
 - **A change that carries a schema change stays Anton's to push.** The repo has no migration tooling: the Postgres schema is `backend/schema.sql`, applied to Neon by hand, in step with the deploy. A change to it, or any change that needs the database changed before its code runs, waits for Anton.
 
 ## Hazards
 
-- The Vercel firewall rule that lets native clients and CloudFront through bot protection lives in the dashboard, not here: a new API path those clients need must be added to it (`booqs/decisions` → `native-api-access`).
-- `proxy.ts` 403s crawler user agents, link-preview fetchers included (`booqs/decisions` → `crawler-blocking`).
-- The parser stores EPUB content as-is; renaming tags or camelCasing attributes belongs in `viewer/` at render time, because `BooqPath`s and annotations anchor to the stored tree (`booqs/decisions` → `ir-fidelity`). Content documents parse with `htmlparser2`; `fast-xml-parser` changes tree shapes (`content-parser`).
-- Highlights are DOM spans, not the CSS Custom Highlight API, until WebKit can hit-test highlights (`booqs/decisions` → `highlight-rendering`).
+- The Vercel firewall rule that lets native clients and CloudFront through bot protection lives in the dashboard, not here: a new API path those clients need must be added to it (`/ashakirzianov/booqs/decisions/` → `native-api-access`).
+- `proxy.ts` 403s crawler user agents, link-preview fetchers included (`/ashakirzianov/booqs/decisions/` → `crawler-blocking`).
+- The parser stores EPUB content as-is; renaming tags or camelCasing attributes belongs in `viewer/` at render time, because `BooqPath`s and annotations anchor to the stored tree (`/ashakirzianov/booqs/decisions/` → `ir-fidelity`). Content documents parse with `htmlparser2`; `fast-xml-parser` changes tree shapes (`content-parser`).
+- Highlights are DOM spans, not the CSS Custom Highlight API, until WebKit can hit-test highlights (`/ashakirzianov/booqs/decisions/` → `highlight-rendering`).
 - The repo is public, and a push publishes even though it no longer deploys: no secrets, tokens or private values in code, docs or commit messages.

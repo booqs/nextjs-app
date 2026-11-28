@@ -5,12 +5,12 @@ codebase-url: https://github.com/booqs/nextjs-app
 
 # Booqs — nextjs-app
 
-The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. One repo of the multi-repo Booqs track. Everything about Booqs that is useful without this checkout lives in xaxis, under `/ashakirzianov/booqs/`: `decisions/` holds every decision in force, this repo's included, `strategy.md` the product strategy, and `conventions.md` is read before cross-repo work; `get-project` on `/ashakirzianov/booqs/` gives the track and lists the rest.
+The Next.js web app and GraphQL backend behind Booqs, and the API server the SwiftUI client talks to. One repo of the multi-repo Booqs track. Everything about Booqs that is useful without this checkout lives in monore, under `/ashakirzianov/booqs/`: `decisions/` holds every decision in force, this repo's included, `strategy.md` the product strategy, and `conventions.md` is read before cross-repo work; `get-project` on `/ashakirzianov/booqs/` gives the track and lists the rest.
 
 ## Documentation layout
 
 - `AGENTS.md` — this file: layout, map and conventions.
-- Decisions: xaxis `/ashakirzianov/booqs/decisions/`, the areas Content model, Styles, Annotations, Auth and Deployment. A new decision lands there together with the code.
+- Decisions: monore `/ashakirzianov/booqs/decisions/`, the areas Content model, Styles, Annotations, Auth and Deployment. A new decision lands there together with the code.
 - `docs/` — when present, per-effort designs and plans, records and standing notes.
 - `archive/` — finished efforts, one file or directory per effort.
 - `SCRATCHPAD.md` — when present, Anton's untracked drafting space. Never open it without an explicit ask.
